@@ -103,6 +103,9 @@ func (c *FileAppender) Append(e *Event) {
 	if err != nil {
 		return
 	}
+	if c.writer == nil {
+		c.Start()
+	}
 	_, _ = c.writer.Write(data)
 }
 

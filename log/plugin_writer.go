@@ -97,7 +97,7 @@ type FileWriter struct {
 
 // NewFileWriter returns a FileWriter that a Writer implementation.
 func NewFileWriter(fileName string) (Writer, error) {
-	flag := os.O_RDWR | os.O_CREATE | os.O_APPEND
+	flag := os.O_CREATE | os.O_RDWR | os.O_APPEND
 	file, err := os.OpenFile(fileName, flag, 666)
 	if err != nil {
 		return nil, err
